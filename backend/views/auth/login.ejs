@@ -1,0 +1,39 @@
+<% layout('./layout/boilerplate') %>
+
+<div class="border p-3 mx-auto w-50 mt-5">
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <div class="mb-3">
+            <label class="form-label" for="username">Username</label>
+            <input class="form-control" type="text" id="username" name="username">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="password">password</label>
+            <input class="form-control" type="text" id="password" name="password">
+            <input type="checkbox" checked="true" onclick="Toggle()">
+        </div>
+        <p>Don't have an account ? <a href="/register">Sign up</a></p>
+
+        <button type="submit" class="btn btn-sm btn-success">Login</button>
+        
+    </form>
+
+</div>
+
+
+<script>
+    // Change the type of input to password or text
+    function Toggle() {
+        let temp = document.getElementById("password");
+         
+        if (temp.type === "password") {
+            temp.type = "text";
+        }
+        else {
+            temp.type = "password";
+        }
+    }
+</script>
+
+
+
