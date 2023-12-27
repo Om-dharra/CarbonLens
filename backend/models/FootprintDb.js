@@ -17,3 +17,8 @@ const footprintSchema=new mongoose.Schema({
     LPG_v: Number,
     CNG_v: Number,
 })
+
+const FootPrintDetail=mongoose.model('FootPrintDetail',footprintSchema);
+
+
+module.exports=FootPrintDetail

@@ -44,6 +44,7 @@ app.set("views",path.join(__dirname,"views"))
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride("_method"));
 
+
 app.use(session(sessionConfig));
 app.use(passport.authenticate('session'));
 app.use(flash());
@@ -59,11 +60,11 @@ app.use((req,res,next)=>{
 // seedData2();
 //routes
 const authRoutes=require("./routes/authroutes");
-
-
+const homeRoutes=require("./routes/homeroutes");
 
 //Router middleware
 app.use(authRoutes);
+app.use(homeRoutes);
 
 
 

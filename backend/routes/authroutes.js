@@ -37,7 +37,7 @@ router.post("/login",
     }),
     function(req,res){
         req.flash("success",`welcome back ${req.body.username}`);
-        res.redirect("/products");
+        res.redirect("/home");
     }
 )
 

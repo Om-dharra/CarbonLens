@@ -1,0 +1,208 @@
+<% layout('layout/boilerplate') -%>
+<style>
+    .outside {
+        display: block;
+        margin: auto;
+        width: 1000px;
+    }
+
+    .container {
+        border: 1px solid white;
+        box-shadow: 0 0 14px rgba(255, 255, 255, 0.7);
+        border-radius: 20px;
+        display: block;
+        /* width: 40%; */
+        padding: 18px 21px;
+        background: linear-gradient(135deg, rgb(222, 222, 242), rgb(227, 241, 238));
+        overflow: hidden;
+        box-shadow: 2px 2px 4px rgb(128, 128, 128);
+    }
+
+    .container label {
+        font-size: 0.9rem;
+    }
+
+    .container h2 {
+        text-align: center;
+        padding: 0px 0px;
+        margin-top: 5px;
+    }
+
+    .container form {
+        padding-left: 1.5rem;
+    }
+
+    .container input {
+        padding: 0px 0rem 0 0.5rem;
+        margin: 0 21px;
+        border-radius: 3px;
+        margin: 4px 21px;
+        border-radius: 5px;
+        border: 1px solid grey;
+    }
+
+    .container button {
+        padding: 7px 95px;
+        background: linear-gradient(45deg, rgb(13, 14, 50), rgb(51, 120, 91));
+        border-radius: 3px;
+        border: none;
+        color: white;
+    }
+
+    .container button:hover {
+        color: aquamarine;
+    }
+
+    .container input:active {
+        transform: scale(0.95);
+    }
+
+    .buttons-container {
+        margin-left: 20px;
+        margin-bottom: 7px;
+    }
+
+    .buttons-container a {
+        text-decoration: none;
+        border: 1px solid white;
+        padding: 4px 15px;
+        color: black;
+        border-radius: 4px;
+    }
+
+    #active {
+        background: linear-gradient(135deg, rgb(222, 222, 242), rgb(227, 241, 238));
+        /* border: 2px solid rgb(163, 201, 163); */
+        /* padding: 2px 12px; */
+        cursor: default;
+    }
+
+    .button:hover {
+        background-color: rgb(235, 179, 179);
+        padding: 8px 20px;
+        border-radius: 6px;
+    }
+</style>
+<section>
+    <div class="border p-3 mx-auto w-50 mt-5">
+        <div class="buttons-container">
+          <a href="/BuildingDb" class="button" id="notactive"
+            >Building</a
+          >
+          <a id="active">Vehicles</a>
+          <a href="/Result" class="button" id="notactive"
+            >Results</a
+          >
+        </div>
+        <div class="container">
+          <h2>Enter Your Consumption Data</h2>
+          <form id="carbon-form">
+            <label for="petrol">Petrol (litres) :</label>
+            <input type="number" id="petrol" name="petrol" required /><br /><br />
+  
+            <label for="disel">Diesel (litres) :</label>
+            <input type="number" id="diesel" name="diesel" required /><br /><br />
+  
+            <label for="cng">CNG (kg) :</label>
+            <input type="number" id="cng" name="cng" /><br /><br />
+  
+            <label for="lpg">LPG (kg):</label>
+            <input type="number" id="lpg" name="lpg" /><br /><br />
+  
+            <button class="button-container" type="submit">Calculate</button>
+          </form>
+        </div>
+      </div>
+      <script>
+        document
+          .getElementById("carbon-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            const electricity = parseFloat(
+              document.getElementById("electricity").value
+            );
+            const naturalGas = parseFloat(
+              document.getElementById("naturalGas").value
+            );
+            const heatingOil = parseFloat(
+              document.getElementById("heatingOil").value
+            );
+            const coal = parseFloat(document.getElementById("coal").value);
+            const lpg = parseFloat(document.getElementById("lpg").value);
+            const propane = parseFloat(document.getElementById("propane").value);
+            const diesel = parseFloat(document.getElementById("diesel").value);
+            const refrigerant = document.getElementById("refrigerant").value;
+            const refrigerantAmount = parseFloat(
+              document.getElementById("refrigerantAmount").value
+            );
+  
+            const totalCarbonFootprint = calculateTotalCarbonFootprint(
+              electricity,
+              naturalGas,
+              heatingOil,
+              coal,
+              lpg,
+              propane,
+              diesel,
+              refrigerant,
+              refrigerantAmount
+            );
+            alert(
+              `Your total carbon footprint is: ${totalCarbonFootprint} kg CO2e`
+            );
+          });
+  
+        function calculateTotalCarbonFootprint(
+          electricity,
+          naturalGas,
+          heatingOil,
+          coal,
+          lpg,
+          propane,
+          diesel,
+          refrigerant,
+          refrigerantAmount
+        ) {
+          const carbonFactors = {
+            electricity: 0.5, // kg CO2e per kWh
+            naturalGas: 2.0, // kg CO2e per kg
+            heatingOil: 3.0, // kg CO2e per kg
+            coal: 4.0, // kg CO2e per metric tonne
+            lpg: 1.5, // kg CO2e per kg
+            propane: 2.0, // kg CO2e per kg
+            diesel: 2.5, // kg CO2e per litre
+            CFC: 0.8, // Example values for different refrigerants (replace with actual values)
+            HFC: 0.6,
+            DFM: 0.7,
+            HFCB: 0.9,
+            IB: 1.0,
+            Pro: 1.2,
+            // Add more refrigerants and their factors as needed
+          };
+  
+          const carbonFootprintElectricity =
+            electricity * carbonFactors.electricity;
+          const carbonFootprintNaturalGas = naturalGas * carbonFactors.naturalGas;
+          const carbonFootprintHeatingOil = heatingOil * carbonFactors.heatingOil;
+          const carbonFootprintCoal = coal * carbonFactors.coal;
+          const carbonFootprintLPG = lpg * carbonFactors.lpg;
+          const carbonFootprintPropane = propane * carbonFactors.propane;
+          const carbonFootprintDiesel = diesel * carbonFactors.diesel;
+          const carbonFootprintRefrigerant =
+            carbonFactors[refrigerant] * refrigerantAmount || 0;
+  
+          const totalCarbonFootprint =
+            carbonFootprintElectricity +
+            carbonFootprintNaturalGas +
+            carbonFootprintHeatingOil +
+            carbonFootprintCoal +
+            carbonFootprintLPG +
+            carbonFootprintPropane +
+            carbonFootprintDiesel +
+            carbonFootprintRefrigerant;
+  
+          return totalCarbonFootprint;
+        }
+      </script>
+  
+</section>

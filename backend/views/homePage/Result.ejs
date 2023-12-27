@@ -1,0 +1,106 @@
+<% layout('layout/boilerplate') -%>
+<style>
+    #result-box {
+        padding: 0.5rem;
+        margin: 2rem auto;
+        width: 30rem;
+        border-radius: 5px;
+        box-shadow: 2px 2px 6px rgb(68, 68, 93);
+        background: linear-gradient(45deg, rgb(244, 244, 250), rgb(243, 249, 248));
+    }
+
+    h1 {
+        color: rgb(19, 43, 38);
+        text-align: center;
+        font-weight: 1000;
+        font-size: 2.3rem;
+        margin-bottom: 0;
+        text-shadow: 1px 1px 2px rgb(68, 68, 93);
+    }
+
+    #result-good {
+        font-family: sans-serif;
+        text-align: center;
+        font-size: 4rem;
+        color: rgba(10, 174, 119, 0.84);
+        font-family: inherit;
+        font-weight: 1000;
+        margin: 0rem auto;
+        text-shadow: 2px 2px 6px rgb(68, 68, 93);
+    }
+
+    #result-bad {
+        font-family: sans-serif;
+        text-align: center;
+        font-size: 5rem;
+        color: red;
+        font-family: inherit;
+        font-weight: 1000;
+        margin: 0rem auto;
+        text-shadow: 2px 2px 6px rgb(68, 68, 93);
+    }
+
+    #graph {
+        margin: auto;
+        width: 20rem;
+        margin-top: 3rem;
+    }
+
+    #graph img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 5px;
+        box-shadow: 2px 2px 6px rgb(68, 68, 93);
+    }
+
+    .alert {
+        color: red;
+    }
+
+    #AI {
+        display: block;
+        margin: 2rem auto 1rem auto;
+        text-decoration: none;
+        width: 20rem;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        background: linear-gradient(45deg, rgb(13, 14, 50), rgb(51, 120, 91));
+        color: aliceblue;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    a:hover {
+        color: aquamarine;
+    }
+
+    #AI:hover {
+        color: aquamarine;
+    }
+</style>
+
+<section>
+    <div class="border p-3 mx-auto w-50 mt-5" id="result-box">
+        <h1>Your Carbon emission is: </h1>
+        <% if(value < 800000){ %>
+            <div id="result-good">
+                <%=value %>
+                    
+            </div>
+            <% } else{ %>
+                <div id="result-bad">
+                    <%=value %>
+                </div>
+                <% } %>
+    
+                    <div id="graph">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.YG5gT6VwgOWHEW161fDztAHaFP&pid=Api&P=0&h=180"
+                            alt="graph">
+                    </div>
+                    <a id="AI" href="/ai_assistant">Ask our AI Assistant</a>
+                    
+    </div>
+
+</section>
+    

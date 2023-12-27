@@ -4,8 +4,8 @@ const passportLocalMongoose=require('passport-local-mongoose');
 const userSchema=new mongoose.Schema({
     // username:String, --->This is automatically added by passport-local-manager
     // password:String, 
-    email:String,
-    result:String
+    email:String
+    
 })
 
 userSchema.plugin(passportLocalMongoose)
