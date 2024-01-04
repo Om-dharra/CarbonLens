@@ -78,131 +78,609 @@
     }
 
     .button:hover {
-        background-color: rgb(235, 179, 179);
-        padding: 8px 20px;
-        border-radius: 6px;
-    }
+    background-color: rgb(235, 179, 179);
+    padding: 8px 20px;
+    border-radius: 6px;
+  }
+
+  .aks-input-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .aks-input-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .aks-input-icon-wrap .aks-input[type="text"] {
+    padding-left: 33px;
+  }
+
+  .aks-input-icon {
+    position: absolute;
+    left: 10px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7575a0;
+  }
+
+  .aks-input-label {
+    margin-left: 0.4rem;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .aks-input-wrap .aks-input-label {
+    margin-left: 0rem;
+    margin-bottom: 0.3rem;
+    display: block;
+    font-size: 15px;
+    color: #5e6272;
+  }
+
+  .aks-input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 21px;
+    width: 21px;
+    border-radius: 7px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: unset;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    border: 0.1rem solid #bbc1e1;
+    background: #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="checkbox"]:hover {
+    border-color: #275efe;
+  }
+
+  .aks-input[type="checkbox"]:after {
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5px;
+    height: 8px;
+    border: 2px solid #fff;
+    border-top: 0;
+    border-left: 0;
+    top: 3px;
+    position: absolute;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="checkbox"]:checked {
+    background: #05f;
+    border: 1px solid #05f;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="checkbox"]:checked:after {
+    -webkit-transform: rotate(43deg);
+    transform: rotate(43deg);
+  }
+
+  .aks-input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.3);
+    border-color: #275efe;
+  }
+
+  .aks-input[type="checkbox"]:disabled {
+    background: #f6f8ff;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border-color: #bbc1e1;
+  }
+
+  .aks-input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 21px;
+    width: 21px;
+    border-radius: 9999px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: unset;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    border: 0.1rem solid #bbc1e1;
+    background: #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="radio"]:hover {
+    border-color: #275efe;
+  }
+
+  .aks-input[type="radio"]:after {
+    content: "";
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    border-radius: 9999px;
+    background: #fff;
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="radio"]:checked {
+    background: #05f;
+    border: 1px solid #05f;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="radio"]:checked:after {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 1;
+  }
+
+  .aks-input[type="radio"]:focus {
+    box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.3);
+    border-color: #275efe;
+  }
+
+  .aks-input[type="radio"]:disabled {
+    background: #f6f8ff;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border-color: #bbc1e1;
+  }
+
+  .aks-switch[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 21px;
+    width: 38px;
+    border-radius: 11px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    vertical-align: unset;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    border: 0.1rem solid #bbc1e1;
+    background: #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-switch[type="checkbox"]:hover {
+    border-color: #275efe;
+  }
+
+  .aks-switch[type="checkbox"]:after {
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    width: 13px;
+    height: 13px;
+    background: #bbc1e1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    position: absolute;
+    left: 2px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-switch[type="checkbox"]:checked {
+    background: #05f;
+    border: 1px solid #05f;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-switch[type="checkbox"]:checked:after {
+    -webkit-transform: translateX(17px);
+    transform: translateX(17px);
+    background: white;
+  }
+
+  .aks-switch[type="checkbox"]:focus {
+    box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.3);
+    border-color: #275efe;
+  }
+
+  .aks-switch[type="checkbox"]:disabled {
+    background: #f6f8ff;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border-color: #bbc1e1;
+  }
+
+  .aks-input[type="text"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* width: 100%; */
+    margin-left: 10px;
+    border-radius: 7px;
+    padding: 8px 10px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: unset;
+    position: relative;
+    margin: 0;
+    border: 0.1rem solid #bbc1e1;
+    background: #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="text"]:hover {
+    border-color: #275efe;
+  }
+
+  .aks-input[type="text"]:focus {
+    box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.3);
+    border-color: #275efe;
+  }
+
+  .aks-input[type="text"]:disabled {
+    background: #f6f8ff;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border-color: #bbc1e1;
+  }
+
+  .aks-input[type="number"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* width: 100%; */
+    margin-left: 10px;
+    border-radius: 7px;
+    padding: 8px 10px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: unset;
+    position: relative;
+    border: 0.1rem solid #bbc1e1;
+    background: #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="number"]:hover {
+    border-color: #275efe;
+  }
+
+  .aks-input[type="number"]:focus {
+    box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.3);
+    border-color: #275efe;
+  }
+
+  .aks-input[type="number"]:disabled {
+    background: #f6f8ff;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border-color: #bbc1e1;
+  }
+
+  .aks-input[type="password"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    border-radius: 7px;
+    padding: 8px 10px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: unset;
+    position: relative;
+    margin: 0;
+    border: 0.1rem solid #bbc1e1;
+    background: #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="password"]:hover {
+    border-color: #275efe;
+  }
+
+  .aks-input[type="password"]:focus {
+    box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.3);
+    border-color: #275efe;
+  }
+
+  .aks-input[type="password"]:disabled {
+    background: #f6f8ff;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border-color: #bbc1e1;
+  }
+
+  .password-show-hide {
+    position: absolute;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    color: #7575a0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: fit-content;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    outline: none;
+  }
+
+  .password-show-hide:hover {
+    color: #275efe;
+  }
+
+  .password-show-hide:focus {
+    box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.3);
+    color: #275efe;
+  }
+
+  .aks-select-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .aks-select-arrow {
+    position: absolute;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  select.aks-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* width: 100%; */
+    margin-left: 10px;
+    border-radius: 7px;
+    padding: 8px 10px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: unset;
+    position: relative;
+    /* margin: 0; */
+    border: 0.1rem solid #bbc1e1;
+    background: #fff;
+    color: #6d6d6d;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  select.aks-input:hover {
+    border-color: #275efe;
+  }
+
+  select.aks-input:focus {
+    box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.3);
+    border-color: #275efe;
+  }
+
+  select.aks-input:disabled {
+    background: #f6f8ff;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border-color: #bbc1e1;
+  }
+
+  .aks-input[type="submit"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 30%;
+    border-radius: 7px;
+    padding: 8px 10px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: unset;
+    position: relative;
+    margin: 0;
+    border: 0.1rem solid #275efe;
+    background: #275efe;
+    color: #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="submit"]:hover {
+    border-color: #275efe;
+  }
+
+  .aks-input[type="submit"]:focus {
+    box-shadow: 0 0 0 3px rgba(39, 94, 254, 0.3);
+    border-color: #275efe;
+  }
+
+  .aks-input[type="submit"]:disabled {
+    background: #f6f8ff;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border-color: #bbc1e1;
+  }
+
+  .aks-date-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .aks-date-calender {
+    position: absolute;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    color: #7575a0;
+    cursor: pointer;
+  }
+
+  .aks-date-calender:hover {
+    color: #275efe;
+  }
+
+  .aks-input[type="date"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* width: 100%; */
+    margin-left: 10px;
+    border-radius: 7px;
+    padding: 8px 10px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: unset;
+    position: relative;
+    margin: 0;
+    border: 0.1rem solid #bbc1e1;
+    background: #fff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .aks-input[type="date"]:hover {
+    border-color: #275efe;
+  }
+
+  .aks-input[type="date"]:focus {
+    box-shadow: 0 0 0 2px rgba(39, 94, 254, 0.3);
+    border-color: #275efe;
+  }
+
+  .aks-input[type="date"]:disabled {
+    background: #f6f8ff;
+    cursor: not-allowed;
+    opacity: 0.9;
+    border-color: #bbc1e1;
+  }
+
+  .aks-input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  .aks-input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 5;
+    color: #7575a0;
+    opacity: 0;
+  }
 </style>
 <section>
     <div class="border p-3 mx-auto w-50 mt-5">
         <div class="buttons-container">
-          <a href="/BuildingDb" class="button" id="notactive"
+          <a href="/BuildingDb/<%= businessid %>" class="button" id="notactive"
             >Building</a
           >
           <a id="active">Vehicles</a>
-          <a href="/Result" class="button" id="notactive"
+          <a href="/SupplyDb/<%= businessid %>" class="button" id="notactive">Supply Chain</a>
+          <a href="/Result/<%= businessid %>" class="button" id="notactive"
             >Results</a
           >
         </div>
         <div class="container">
           <h2>Enter Your Consumption Data</h2>
-          <form id="carbon-form">
-            <label for="petrol">Petrol (litres) :</label>
-            <input type="number" id="petrol" name="petrol" required /><br /><br />
-  
-            <label for="disel">Diesel (litres) :</label>
-            <input type="number" id="diesel" name="diesel" required /><br /><br />
-  
-            <label for="cng">CNG (kg) :</label>
-            <input type="number" id="cng" name="cng" /><br /><br />
-  
-            <label for="lpg">LPG (kg):</label>
-            <input type="number" id="lpg" name="lpg" /><br /><br />
-  
-            <button class="button-container" type="submit">Calculate</button>
+          <form id="carbon-form" method="post" action="/CalculateFinal/<%= businessid %>">
+            <div class="aks-input-row">
+                <label class="aks-input-label" for="petrol">Petrol (litres) :</label>
+                <input
+                  class="aks-input"
+                  type="number"
+                  id="petrol"
+                  name="petrol"
+                  required
+                />
+              </div>
+      
+              <div class="aks-input-row">
+                <label class="aks-input-label" for="diesel">Diesel (litres) :</label>
+                <input
+                  class="aks-input"
+                  type="number"
+                  id="diesel"
+                  name="diesel"
+                  required
+                />
+              </div>
+      
+              <div class="aks-input-row">
+                <label class="aks-input-label" for="cng">CNG (kg) :</label>
+                <input class="aks-input" type="number" id="cng" name="cng" />
+              </div>
+      
+              <div class="aks-input-row">
+                <label class="aks-input-label" for="lpg">LPG (kg):</label>
+                <input class="aks-input" type="number" id="lpg" name="lpg" />
+              </div>
+      
+              <div class="aks-input-row">
+                <button class="aks-input" class="button-container" type="submit">
+                  Calculate
+                </button>
+              </div>
           </form>
         </div>
       </div>
-      <script>
-        document
-          .getElementById("carbon-form")
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
-            const electricity = parseFloat(
-              document.getElementById("electricity").value
-            );
-            const naturalGas = parseFloat(
-              document.getElementById("naturalGas").value
-            );
-            const heatingOil = parseFloat(
-              document.getElementById("heatingOil").value
-            );
-            const coal = parseFloat(document.getElementById("coal").value);
-            const lpg = parseFloat(document.getElementById("lpg").value);
-            const propane = parseFloat(document.getElementById("propane").value);
-            const diesel = parseFloat(document.getElementById("diesel").value);
-            const refrigerant = document.getElementById("refrigerant").value;
-            const refrigerantAmount = parseFloat(
-              document.getElementById("refrigerantAmount").value
-            );
-  
-            const totalCarbonFootprint = calculateTotalCarbonFootprint(
-              electricity,
-              naturalGas,
-              heatingOil,
-              coal,
-              lpg,
-              propane,
-              diesel,
-              refrigerant,
-              refrigerantAmount
-            );
-            alert(
-              `Your total carbon footprint is: ${totalCarbonFootprint} kg CO2e`
-            );
-          });
-  
-        function calculateTotalCarbonFootprint(
-          electricity,
-          naturalGas,
-          heatingOil,
-          coal,
-          lpg,
-          propane,
-          diesel,
-          refrigerant,
-          refrigerantAmount
-        ) {
-          const carbonFactors = {
-            electricity: 0.5, // kg CO2e per kWh
-            naturalGas: 2.0, // kg CO2e per kg
-            heatingOil: 3.0, // kg CO2e per kg
-            coal: 4.0, // kg CO2e per metric tonne
-            lpg: 1.5, // kg CO2e per kg
-            propane: 2.0, // kg CO2e per kg
-            diesel: 2.5, // kg CO2e per litre
-            CFC: 0.8, // Example values for different refrigerants (replace with actual values)
-            HFC: 0.6,
-            DFM: 0.7,
-            HFCB: 0.9,
-            IB: 1.0,
-            Pro: 1.2,
-            // Add more refrigerants and their factors as needed
-          };
-  
-          const carbonFootprintElectricity =
-            electricity * carbonFactors.electricity;
-          const carbonFootprintNaturalGas = naturalGas * carbonFactors.naturalGas;
-          const carbonFootprintHeatingOil = heatingOil * carbonFactors.heatingOil;
-          const carbonFootprintCoal = coal * carbonFactors.coal;
-          const carbonFootprintLPG = lpg * carbonFactors.lpg;
-          const carbonFootprintPropane = propane * carbonFactors.propane;
-          const carbonFootprintDiesel = diesel * carbonFactors.diesel;
-          const carbonFootprintRefrigerant =
-            carbonFactors[refrigerant] * refrigerantAmount || 0;
-  
-          const totalCarbonFootprint =
-            carbonFootprintElectricity +
-            carbonFootprintNaturalGas +
-            carbonFootprintHeatingOil +
-            carbonFootprintCoal +
-            carbonFootprintLPG +
-            carbonFootprintPropane +
-            carbonFootprintDiesel +
-            carbonFootprintRefrigerant;
-  
-          return totalCarbonFootprint;
-        }
-      </script>
+      
   
 </section>

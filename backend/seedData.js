@@ -5,66 +5,66 @@ const EmissionFactor=require('./models/EmissionFactor');
 const emissionFactor = [
     {
       entityName: "electricity",
-      emissionFactor: 0.53,
+      emissionFactor: 0.82,
       unit: "kWh",
     },
     {
       entityName: "naturalgas",
-      emissionFactor: 0.00275,
+      emissionFactor: 2.75,
       unit: "kg",
     },
     {
       entityName: "propane",
-      emissionFactor: 0.00575,
+      emissionFactor: 2.99,
       unit: "kg",
     },
     {
-      entityName: "heatingoil",
-      emissionFactor: 0.00319,
+      entityName: "heatingOil",
+      emissionFactor: 3.15,
       unit: "kg",
     },
     {
       entityName: "coal",
-      emissionFactor: 1946.83,
+      emissionFactor: 3300,
       unit: "metric tons",
     },
     {
       entityName: "lpg",
-      emissionFactor: 0.002983,
+      emissionFactor: 2.99,
       unit: "kg",
     },
     {
       entityName: "diesel",
-      emissionFactor: 0.0027,
-      unit: "kg",
+      emissionFactor: 2.7,
+      unit: "litres",
     },
     {
-      entityName: "chlorofluorocarbon",
+      entityName: "CFC",
       emissionFactor: 18900,
       unit: "kg",
     },
     {
-      entityName: "hydrofluorocarbon",
+      entityName: "HFC",
       emissionFactor: 1430,
       unit: "kg",
     },
     {
-      entityName: "difluoromethane",
+      entityName: "DFM",
       emissionFactor: 675,
       unit: "kg",
     },
     {
-      entityName: "HFC Blend",
+      entityName: "HFCB",
       emissionFactor: 675,
       unit: "kg",
     },
     {
-      entityName: "isobutane",
+      entityName: "IB",
       emissionFactor: 21,
       unit: "kg",
     },
     {
-      entityName: "propane refrigerant",
+      entityName: "Pro",
       emissionFactor: 11,
       unit: "kg",
     },
@@ -73,6 +73,11 @@ const emissionFactor = [
       emissionFactor: 8.78,
       unit: "gallon",
     },
+    {
+      entityName: "cng",
+      emissionFactor:2.666 ,
+      unit: "kg"
+    }
 ];
 async function seedEmissionFactors(){
     await EmissionFactor.deleteMany({});

@@ -144,12 +144,29 @@
 
 <nav class="Navbar">
     <ul>
-        <a href="/home"><img src="https://github.com/Om-dharra/coffee_site.github.io/blob/main/WhatsApp%20Image%202023-12-25%20at%2016.44.47_67604895.jpg?raw=true" alt=""></a>
-        <li><a href="/BuildingDb">Calculate your Carbon emission</a></li>
-
-        <li><a href="/Feedback">Get feedback</a></li>
+        <a href="#"><img src="https://github.com/Om-dharra/coffee_site.github.io/blob/main/WhatsApp%20Image%202023-12-25%20at%2016.44.47_67604895.jpg?raw=true" alt=""></a>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/FillForm">Calculate your Carbon emission</a></li>
         <li><a href="/Contact">Contact Us</a></li>
+        <% if(currentUser){ %>
+            <li>
+              <a  href="#"><%= currentUser.username %></a>
+            </li> 
+            <li>
+              <a  href="/logout">LogOut</a>
+            </li> 
+            
+          <% }else{ %>
+          
+            <li >
+              <a href="/login">Login</a>
+            </li> 
+            <li >
+              <a href="/register">Signup</a>
+            </li> 
+          <% } %>
     </ul>
+    
     <a href="#">
         <div id="hamburg">
             <div></div>
@@ -161,9 +178,9 @@
 <aside id="side-drawer">
     <nav>
         <ul>
-            <a href="/home"><img src="../images/logo carbonlens.jpeg" alt=""></a>
-            <li><a href="/BuildingDb">Calculate your Carbon emission</a></li>
-            <li><a href="/Feedback">Get feedback</a></li>
+            <a href="/home"><img src="https://github.com/Om-dharra/coffee_site.github.io/blob/main/WhatsApp%20Image%202023-12-25%20at%2016.44.47_67604895.jpg?raw=true" alt=""></a>
+            <li><a href="/FillForm">Calculate your Carbon emission</a></li>
+      
             <li><a href="/Contact">Contact Us</a></li>
         </ul>
         

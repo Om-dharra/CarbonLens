@@ -37,11 +37,13 @@ router.post("/login",
     }),
     function(req,res){
         req.flash("success",`welcome back ${req.body.username}`);
+
         res.redirect("/home");
     }
 )
 
 router.get("/logout",(req,res)=>{
+
     req.logOut((err)=>{
         if(err) {return next(err)};
         req.flash("success","Goodbye see u again")

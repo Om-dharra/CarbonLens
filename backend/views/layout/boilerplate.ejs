@@ -9,12 +9,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <style>
-        body{
-            background:linear-gradient(45deg,rgb(229, 229, 237),rgb(199,216,209));
-            
-
+        body {
+            background: linear-gradient(45deg, rgb(229, 229, 237), rgb(199, 216, 209));
         }
-        
+    
+        footer {
+            margin-top: 10%;
+            --height: 1.1rem;
+            font-family: sans-serif;
+            background: linear-gradient(45deg, rgb(13, 14, 50), rgb(51, 120, 91));
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 1rem;
+    
+        }
+    
+        footer ul {
+            font-size: 1.5rem;
+            margin: auto;
+            padding: 0;
+            color: rgb(234, 241, 241);
+            list-style: none;
+        }
+    
+        footer h2 {
+            text-align: center;
+            color: rgb(181, 245, 245);
+            text-shadow: 1px 2px 2px rgb(0, 11, 9);
+            font-size: 1.8rem;
+            margin-bottom: 0;
+        }
+    
+        footer p {
+            font-size: var(--height);
+            margin-top: 0.5rem;
+            color: rgb(186, 197, 197);
+        }
+    
+        footer img {
+            height: 3.5rem;
+            margin: auto;
+            border-radius: 50%;
+            object-fit: fill;
+        }
+    
+        footer a {
+            text-decoration: none;
+            font-size: var(--height);
+            margin: auto;
+            color: rgb(186, 197, 197);
+        }
+    
+        footer a:hover {
+            color: aquamarine;
+        }
     </style>
     
 </head>
@@ -24,6 +75,17 @@
     </header>
     <%- include("../partials/flash") %>
     <%- body -%>
+
+
+    <footer>
+        <h2>Debug Dragons</h2>
+        <ul>
+            <p>Empowering sustainability through precise carbon footprint calculations — your journey towards a greener future starts here.</p>
+            <li><a href="https://github.com/Om-dharra/CarbonLens/blob/master">Visit our Gitub page</a></li>
+            <li><a href="/Contact">Contact Us</a></li>
+            <li><img src="https://github.com/Om-dharra/coffee_site.github.io/blob/main/WhatsApp%20Image%202023-12-25%20at%2016.44.47_67604895.jpg?raw=true" alt="logo"></li>
+        </ul>
+    </footer>
 
 
 

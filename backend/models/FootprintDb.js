@@ -1,24 +1,18 @@
 const mongoose=require('mongoose')
 
 const footprintSchema=new mongoose.Schema({
-    // Type:String,
-    Electricity_B:Number, //B->Building
-    naturalgas_B: Number,
-    heating_oil_B: Number,
-    coal_B: Number,
-    LPG_B: Number,
-    propane_B: Number,
-    diesel_B: Number,
-    refrigerant_B: Number,
-    //Vehicle
-    Electric_v:Number,
-    petrol_v:Number,
-    diesel_v: Number,
-    LPG_v: Number,
-    CNG_v: Number,
+    electricity:Number, //B->Building
+    naturalGas: Number,
+    heatingOil: Number,
+    coal: Number,
+    lpg: Number,
+    propane: Number,
+    diesel: Number,
+    refrigerant:String,
+    refrigerantAmount:Number 
 })
 
-const FootPrintDetail=mongoose.model('FootPrintDetail',footprintSchema);
+const FootprintDb=mongoose.model('FootprintDb',footprintSchema);
 
 
-module.exports=FootPrintDetail
+module.exports=FootprintDb
