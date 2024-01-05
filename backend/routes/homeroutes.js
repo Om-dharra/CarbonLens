@@ -31,7 +31,8 @@ router.post("/BusinessDb",isLoggedIn,async(req,res)=>{
 router.get("/Result/:businessid",isLoggedIn,async(req,res)=>{
     const {businessid}=req.params;
     const user=await BusinessDatabase.findById(businessid);
-    const value=parseInt(user.Result);
+    let value=parseInt(user.Result);
+    value=parseInt(value/1000);
     // console.log(value);
     res.render("homePage/Result",{value});
 })
@@ -50,30 +51,35 @@ router.get("/SupplyDb/:businessid",isLoggedIn,async(req,res)=>{
 })
 router.post("/ProductCF/:businessid", isLoggedIn, async (req, res) => {
     const { businessid } = req.params;
-    const selectedOption = req.body.options; // Assuming you have a 'select' field with name 'options'
-    console.log(selectedOption);
+    const Obj=req.body;
+    console.log(Obj);
     const user=await BusinessDatabase.findById(businessid);
     let value=parseInt(user.Result);
-    // Accessing other form fields based on the selected option
-    if (selectedOption === 'Steel (BF-BOF)' || selectedOption === 'Steel (EAF)') {
-        const coalProduced = req.body.coalProduced;
-        value+=(coalProduced*1987);
+    for (let key in Obj) {
+        if(key=='coalProduced'){
+            value+=(Obj[key]*1987);
 
-        // Handle coalProduced value as needed
-    } else if (selectedOption === 'Cars') {
-        const smallCars = parseInt(req.body.smallCars);
-        value+=(smallCars*5000);
-        const midSizeCars = parseInt(req.body.midSizeCars);
-        value+=(midSizeCars*8000);
-        const largeSUVs = parseInt(req.body.largeSUVs);
-        value+=(largeSUVs*11000);
-        const electricVehicles = parseInt(req.body.electricVehicles);
-        value+=(electricVehicles*9000);
-        // Handle car-related values as needed
+        }
+        if(key=='smallCars'){
+            value+=(Obj[key]*5000);
+        }
+        if(key=='midSizeCars'){
+            value+=(Obj[key]*8000);
+            
+        }
+        if(key=='largeSUVs'){
+            value+=(Obj[key]*11000);
+            
+        }
+        if(key=='electricVehicles'){
+            value+=(Obj[key]*9000);
+            
+        }
+        
     }
     console.log(value);
     await BusinessDatabase.findByIdAndUpdate(businessid,{Result:value});
-    res.redirect(`/SupplyDb/${businessid}`);
+    res.redirect(`/Result/${businessid}`);
 
 })
 
