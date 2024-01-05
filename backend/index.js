@@ -61,10 +61,11 @@ app.use((req,res,next)=>{
 //routes
 const authRoutes=require("./routes/authroutes");
 const homeRoutes=require("./routes/homeroutes");
-
+const gpt=require("./routes/gpt");
 //Router middleware
 app.use(authRoutes);
 app.use(homeRoutes);
+app.use(gpt);
 
 
 

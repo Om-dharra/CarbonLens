@@ -34,7 +34,7 @@ router.get("/Result/:businessid",isLoggedIn,async(req,res)=>{
     let value=parseInt(user.Result);
     value=parseInt(value/1000);
     // console.log(value);
-    res.render("homePage/Result",{value});
+    res.render("homePage/Result",{value,businessid});
 })
 router.get("/BuildingDb/:businessid",isLoggedIn,(req,res)=>{
     const {businessid}=req.params;
@@ -53,8 +53,7 @@ router.post("/ProductCF/:businessid", isLoggedIn, async (req, res) => {
     const { businessid } = req.params;
     const Obj=req.body;
     console.log(Obj);
-    const user=await BusinessDatabase.findById(businessid);
-    let value=parseInt(user.Result);
+    let value=0;
     for (let key in Obj) {
         if(key=='coalProduced'){
             value+=(Obj[key]*1987);
@@ -78,7 +77,7 @@ router.post("/ProductCF/:businessid", isLoggedIn, async (req, res) => {
         
     }
     console.log(value);
-    await BusinessDatabase.findByIdAndUpdate(businessid,{Result:value});
+    await BusinessDatabase.findByIdAndUpdate(businessid,{Average:value});
     res.redirect(`/Result/${businessid}`);
 
 })
@@ -130,6 +129,9 @@ router.post("/CalculateFinal/:businessid",isLoggedIn,async(req,res)=>{
         const Ef=emissionDb.emissionFactor;
         if(i==0){
             values[i]*=0.264;
+        }
+        if(i==1){
+            values[i]*=0.84;
         }
         sum+=(Ef*values[i]);
         console.log(sum);

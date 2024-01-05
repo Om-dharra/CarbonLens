@@ -6,6 +6,7 @@ const carbonSchema=new mongoose.Schema({
     NoOfEmployees:Number,
     WFHpercent:Number,
     Result:String,
+    Average:Number,
     Carbondatabase_B:[
         {
             type:mongoose.Schema.Types.ObjectId,
