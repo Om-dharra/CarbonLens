@@ -30,17 +30,35 @@ router.post("/BusinessDb",isLoggedIn,async(req,res)=>{
 })
 router.get("/Result/:businessid",isLoggedIn,async(req,res)=>{
     const {businessid}=req.params;
-    const user=await BusinessDatabase.findById(businessid);
-    let value=parseInt(user.Result);
+    const Business=await BusinessDatabase.findById(businessid);
+    let value=parseInt(Business.Result);
     value=parseInt(value/1000);
+    const id1 = Business.Carbondatabase_B;
+    const id2 = Business.Carbondatabase_V;
+    const FootprintDatabase = await FootPrintDb.findById(id1);
+    const VehicleDatabase = await VehicleDb.findById(id2);
+    const electricity = (FootprintDatabase.electricity*(0.82))/1000;
+    // const Electric_v = 2000;
+    const naturalGas = (FootprintDatabase.naturalGas*(2.75))/1000;
+    const heatingOil = (FootprintDatabase.heatingOil*(3.15))/1000;
+    const coal = (FootprintDatabase.coal*(3300))/1000;
+    const lpg = (FootprintDatabase.lpg*(2.99))/1000;
+    const propane = (FootprintDatabase.propane*(2.99))/1000;
+    const diesel = (FootprintDatabase.diesel*(2.7*0.84))/1000;
+    const diesel_v = (VehicleDatabase.diesel*(2.7*0.84))/1000;
+    const refrigerant = (FootprintDatabase.refrigerantAmount*(675))/1000;
+    const petrol_v = (VehicleDatabase.petrol*(8.78*0.264))/1000;
+    const cng_v = (VehicleDatabase.cng*(2.666))/1000;
+    const Arr=[electricity,naturalGas,heatingOil,coal,lpg,propane,diesel,diesel_v,refrigerant,petrol_v,cng_v]
     // console.log(value);
-    res.render("homePage/Result",{value,businessid});
+    res.render("homePage/Result",{value,businessid,Arr});
 })
 router.get("/BuildingDb/:businessid",isLoggedIn,(req,res)=>{
     const {businessid}=req.params;
 
     res.render("homePage/buildingDataInput",{businessid});
 })
+
 router.get("/VehicleDb/:businessid",isLoggedIn,async(req,res)=>{
     const {businessid}=req.params;
     res.render("homePage/vehicleDataInput",{businessid});

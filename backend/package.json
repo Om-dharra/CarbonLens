@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Om-dharra/CarbonLens#readme",
   "dependencies": {
+    "chart.js": "^4.4.1",
     "connect-flash": "^0.1.1",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",

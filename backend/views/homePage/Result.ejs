@@ -17,7 +17,13 @@
         margin-bottom: 0;
         text-shadow: 1px 1px 2px rgb(68, 68, 93);
     }
-    
+
+    .pieChart {
+        display: flex;
+        margin: auto;
+        width: 40vw;
+    }
+
 
     #result-good {
         font-family: sans-serif;
@@ -41,20 +47,11 @@
         text-shadow: 2px 2px 6px rgb(68, 68, 93);
     }
 
-    #graph {
+    .pieChart {
+        display: flex;
         margin: auto;
-        width: 20rem;
-        margin-top: 3rem;
+        width: 40vw;
     }
-
-    #graph img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-        border-radius: 5px;
-        box-shadow: 2px 2px 6px rgb(68, 68, 93);
-    }
-
     .alert {
         color: red;
     }
@@ -81,6 +78,8 @@
     }
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <section>
     <div class="border p-3 mx-auto w-50 mt-5" id="result-box">
         <form method="post" action="/answer/<%= businessid %>">
@@ -94,18 +93,149 @@
                     <%=value %>
                 </div>
                 <% } %>
-    
-                    <div id="graph">
-                        <img src="https://tse1.mm.bing.net/th?id=OIP.YG5gT6VwgOWHEW161fDztAHaFP&pid=Api&P=0&h=180"
-                            alt="graph">
-                    </div>
-                    <button id="AI">Ask our AI Assistant</button>
-                    
+                <div class="pieChart">
+                    <canvas id="myChart"></canvas>
+                    <div style="display: none;" id="d1"><%=Arr[0]%></div>
+                    <div style="display: none;" id="d2"><%=Arr[1]%></div>
+                    <div style="display: none;" id="d3"><%=Arr[2]%></div>
+                    <div style="display: none;" id="d4"><%=Arr[3]%></div>
+                    <div style="display: none;" id="d5"><%=Arr[4]%></div>
+                    <div style="display: none;" id="d6"><%=Arr[5]%></div>
+                    <div style="display: none;" id="d7"><%=Arr[6]%></div>
+                    <div style="display: none;" id="d8"><%=Arr[7]%></div>
+                    <div style="display: none;" id="d9"><%=Arr[8]%></div>
+                    <div style="display: none;" id="d10"><%=Arr[9]%></div>
+                    <div style="display: none;" id="d11"><%=Arr[10]%></div>
                 </div>
-
-        </form>
-        
-
+                
+                
+            <button id="AI">Ask our AI Assistant</button>
+        </form>            
+    </div>
 </section>
+
+<script>
+    const ele1=document.getElementById("d1");
+    var v1=ele1.innerHTML;
+    const ele2=document.getElementById("d2");
+    var v2=ele2.innerHTML;
+    const ele3=document.getElementById("d3");
+    var v3=ele3.innerHTML;
+    const ele4=document.getElementById("d4");
+    var v4=ele4.innerHTML;
+    const ele5=document.getElementById("d5");
+    var v5=ele5.innerHTML;
+    const ele6=document.getElementById("d6");
+    var v6=ele6.innerHTML;
+    const ele7=document.getElementById("d7");
+    var v7=ele7.innerHTML;
+    const ele8=document.getElementById("d8");
+    var v8=ele8.innerHTML;
+    const ele9=document.getElementById("d9");
+    var v9=ele9.innerHTML;
+    const ele10=document.getElementById("d10");
+    var v10=ele10.innerHTML;
+    const ele11=document.getElementById("d11");
+    var v11=ele11.innerHTML;
+    const electricity = v1;
+    // const Electric_v = 2000;
+    const naturalGas = v2;
+    const heatingOil = v3;
+    const coal = v4;
+    const lpg = v5;
+    const propane = v6;
+    const diesel = v7;
+    const diesel_v = v8;
+    const refrigerant = v9;
+    const petrol_v = v10;
+    const cng_v = v11;
+    const ctx = document.getElementById("myChart");
+    
+    new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: [
+                "Electricity",
+                "Natural Gas",
+                "Heating Oil",
+                "Coal",
+                "LPG",
+                "Propane",
+                "Diesel",
+                "Refrigerant",
+                "Petrol",
+                "CNG",
+            ],
+            datasets: [
+                {
+                    label: "Metric Tonne of CO\u2082",
+                    data: [
+                        electricity,
+                        naturalGas,
+                        heatingOil,
+                        coal,
+                        lpg,
+                        propane,
+                        diesel + diesel_v,
+                        refrigerant,
+                        petrol_v,
+                        cng_v,
+                    ],
+                    backgroundColor: [
+                        "rgba(255, 159, 64, 0.8)",
+                        "rgba(255, 205, 86, 0.8)",
+                        "rgba(75, 192, 192, 0.8)",
+                        "rgba(54, 162, 235, 0.8)",
+                        "rgba(153, 102, 255, 0.8)",
+                        "rgba(201, 203, 207, 0.8)",
+                        "rgba(218, 112, 214, 0.8)", // Orchid
+                        "rgba(255, 99, 132, 0.8)",
+                        "rgba(46, 139, 87, 0.8)", // Sea Green
+                        "rgba(0, 128, 128, 0.8)", // Teal
+                    ],
+                    borderColor: [
+                        "rgb(255, 159, 64)",
+                        "rgb(255, 205, 86)",
+                        "rgb(75, 192, 192)",
+                        "rgb(54, 162, 235)",
+                        "rgb(153, 102, 255)",
+                        "rgb(201, 203, 207)",
+                        "rgb(218, 112, 214)", // Orchid
+                        "rgb(255, 99, 132)",
+                        "rgb(46, 139, 87)", // Sea Green
+                        "rgb(0, 128, 128)", // Teal
+                    ],
+
+                    hoverOffset: 25,
+                    borderWidth: 1,
+                },
+            ],
+        },
+        options: {
+            onClick: (e) => {
+                const canvasPosition = getRelativePosition(e, chart);
+
+                //   Substitute the appropriate scale IDs
+                const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
+                const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
+            },
+            scales: {
+                display: false,
+            },
+            plugins: {
+                legend: {
+                    position: "top",
+                    align: "end",
+                },
+            },
+            layout: {
+                padding: {
+                    bottom: 30,
+                },
+            },
+        },
+    });
+</script>
+
 
     
