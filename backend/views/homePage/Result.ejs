@@ -17,6 +17,7 @@
         margin-bottom: 0;
         text-shadow: 1px 1px 2px rgb(68, 68, 93);
     }
+    
 
     #result-good {
         font-family: sans-serif;
@@ -82,11 +83,11 @@
 
 <section>
     <div class="border p-3 mx-auto w-50 mt-5" id="result-box">
-        <h1>Your Carbon emission is: </h1>
-        <% if(value < 800){ %>
+        <form method="post" action="/answer/<%= businessid %>">
+            <h1>Your Carbon emission is: </h1>
+            <% if(value < 800){ %>
             <div id="result-good">
-                <%=value %>&nbsp;tonnes
-                    
+                <%=value %>&nbsp;tonnes          
             </div>
             <% } else{ %>
                 <div id="result-bad">
@@ -98,9 +99,13 @@
                         <img src="https://tse1.mm.bing.net/th?id=OIP.YG5gT6VwgOWHEW161fDztAHaFP&pid=Api&P=0&h=180"
                             alt="graph">
                     </div>
-                    <a id="AI" href="/answer/<%= businessid %>">Ask our AI Assistant</a>
+                    <button id="AI">Ask our AI Assistant</button>
                     
-    </div>
+                </div>
+
+        </form>
+        
 
 </section>
+
     
