@@ -69,6 +69,16 @@ router.post('/answer/:businessid', isLoggedIn, async function (req, res) {
 })
 
 router.get("/newPage/:businessid",isLoggedIn,async(req, res)=>{
+  const {businessid}=req.params;
+  const Business=await BusinessDatabase.findById(businessid);
+  const field=Business.Industry;
+  let data=await  BusinessDatabase.find({Industry:field});
+  const Arr=[];
+  data.forEach((i)=>{
+    Arr.push((i.Result)/1000000);
+  })
+  console.log(Arr);
+  const len=Arr.length;
   // response = JSON.parse(await main(input2));
   response = {
     overview:"overview",
@@ -87,7 +97,7 @@ router.get("/newPage/:businessid",isLoggedIn,async(req, res)=>{
       'Adopt carbon pricing mechanisms: Implement internal carbon pricing mechanisms to incentivize emissions reduction efforts and drive sustainable decision-making within the company.'
     ]
   } 
-  res.render('AiChatbot/recommendations', { recommendations: response.recommendations, analysis: response.analysis, performance: response.performance, result, overview:response.overview});
+  res.render('AiChatbot/recommendations', { recommendations: response.recommendations, analysis: response.analysis, performance: response.performance, result, overview:response.overview,Arr,len});
 })
 
 

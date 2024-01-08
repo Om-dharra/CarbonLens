@@ -5,8 +5,6 @@ const userSchema=new mongoose.Schema({
     // username:String, --->This is automatically added by passport-local-manager
     // password:String, 
     email:String,
-    
-    
 })
 
 userSchema.plugin(passportLocalMongoose)
