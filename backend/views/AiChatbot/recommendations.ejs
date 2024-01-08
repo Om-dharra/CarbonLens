@@ -1,237 +1,250 @@
 <% layout('layout/boilerplate') -%>
-<style>
-  .box {
-    border: 0px solid;
-    border-radius: 20px;
-    height: 100%;
-    position: relative;
-    margin: 50px 50px;
-    padding: 25px 40px;
-    justify-items: start;
-    align-items: start;
-  }
+  <style>
+    body{
+      font-family:sans-serif;
+    }
+    .box {
+      border: 0px solid;
+      border-radius: 20px;
+      height: auto;
+      position: relative;
+      margin: 25px 15rem;
+      padding: 15px 40px;
+      justify-items: start;
+      align-items: start;
+      border-collapse: collapse;
+    }
 
-  .box-purple {
-    background-color: #e4edff;
-    color: #0b2455;
-  }
+    .box-purple {
+      background: linear-gradient(45deg,lavender,rgb(190, 190, 235));
+      box-shadow: 0 0 5px rgb(109, 72, 221);
+      color: #0b2455;
+    }
 
-  .box-green {
-    background-color: #edffe4;
-    color: #454e41;
-  }
+    .box-green {
+      background: linear-gradient(45deg,rgb(229, 247, 246),rgb(245, 248, 247));
+      color: #454e41;
+      box-shadow: 0 0 5px rgb(51, 120, 95);
+    }
 
-  .box-yellow {
-    background-color: #faffdc;
-    color: #667700;
-  }
+    .box-yellow {
+      background: linear-gradient(45deg,rgb(246, 246, 216), rgb(250, 245, 235));
+      box-shadow: 0 0 5px rgb(226, 188, 100);
+      color: #667700;
+    }
 
-  .box-blue {
-    background-color: #e4f7ff;
-    color: #41464e;
-  }
+    .box-blue {
+      background: linear-gradient(90deg,rgb(222, 227, 243),rgb(241, 247, 247));
+      box-shadow: 0 0 5px rgb(116, 141, 230);
+      color: #41464e;
+    }
 
-  .box .title {
-    font-size: 24px;
-    font-family: Inter;
-    font-weight: 700;
-    word-wrap: break-word;
-  }
+    .box .title {
+      font-size: 24px;
+      font-weight: 700;
+      word-wrap: break-word;
+    }
 
-  .box .title-content-space {
-    height: 22px;
-  }
+    .box .title-content-space {
+      height: 22px;
+    }
 
-  .box .content {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: start;
-  }
+    .box .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: start;
+      font-size: 1rem !important;
+    }
 
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: start;
-    margin: 25px 50px;
-  }
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: start;
+      margin: 25px 15rem;
+    }
 
-  .row .box {
-    flex: 1 1 auto;
-    width: 40%;
-    margin: 0;
-  }
+    .row .box {
+      flex: 1 1 auto;
+      width: 40%;
+      margin: 0;
+    }
 
-  .row .space-50 {
-    width: 50px;
-  }
+    .row .space-50 {
+      width: 50px;
+    }
 
-  .box .content span {
-    font-size: 20px;
-    font-family: Inter;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
+    .box .content span {
+      font-size: 20px;
+      font-weight: 400;
+      word-wrap: break-word;
+      font-size: 1rem !important;
+    }
 
-  .list-item {
-    border: 0px solid;
-    border-radius: 20px;
-    background-color: #cff1ff;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: start;
-    margin: 20px 0px;
-  }
+    .list-item {
+      border: 0px solid;
+      border-radius: 20px;
+      
+      background: linear-gradient(45deg,rgb(241, 247, 247),rgb(219, 226, 246));
+      box-shadow: 0 0 5px rgb(116, 141, 230);
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: start;
+      margin: 20px 0px;
+    }
 
-  .list-item .sno {
-    color: #41464e;
-    font-size: 24px;
-    font-family: Inter;
-    font-weight: 700;
-    word-wrap: break-word;
-    margin-right: 35px;
-  }
+    .list-item .sno {
+      color: #41464e;
+      font-size: 24px;
+      font-weight: 700;
+      word-wrap: break-word;
+      margin-right: 35px;
+    }
 
-  .list-item .content {
-    color: #41464e;
-    font-size: 20px;
-    font-family: Inter;
-    font-weight: 400;
-    word-wrap: break-word;
-  }
+    .list-item .content {
+      color: #41464e;
+      font-size: 20px;
+      font-weight: 400;
+      word-wrap: break-word;
+    }
 
-  #result-box {
-    padding: 0.5rem;
-    margin: 2rem auto;
-    width: 30rem;
-    border-radius: 5px;
-    box-shadow: 2px 2px 6px rgb(68, 68, 93);
-    background: linear-gradient(45deg, rgb(244, 244, 250), rgb(243, 249, 248));
-  }
+    #result-box {
+      padding: 0.5rem;
+      margin: 2rem auto;
+      width: 30rem;
+      border-radius: 5px;
+      box-shadow: 2px 2px 6px rgb(68, 68, 93);
+      background: linear-gradient(45deg, rgb(244, 244, 250), rgb(243, 249, 248));
+    }
 
-  h1 {
-    color: rgb(19, 43, 38);
-    text-align: center;
-    font-weight: 1000;
-    font-size: 2.3rem;
-    margin-bottom: 0;
-    text-shadow: 1px 1px 2px rgb(68, 68, 93);
-  }
+    h1 {
+      color: rgb(19, 43, 38);
+      text-align: center;
+      font-weight: 1000;
+      font-size: 2.3rem;
+      margin-bottom: 0;
+      text-shadow: 1px 1px 2px rgb(68, 68, 93);
+    }
 
-  #result-good {
-    font-family: sans-serif;
-    text-align: center;
-    font-size: 4rem;
-    color: rgba(10, 174, 119, 0.84);
-    font-family: inherit;
-    font-weight: 1000;
-    margin: 0rem auto;
-    text-shadow: 2px 2px 6px rgb(68, 68, 93);
-  }
+    #result-good {
+      font-family: sans-serif;
+      text-align: center;
+      font-size: 4rem;
+      color: rgba(10, 174, 119, 0.84);
+      font-family: inherit;
+      font-weight: 1000;
+      margin: 0rem auto;
+      text-shadow: 2px 2px 6px rgb(68, 68, 93);
+    }
 
-  #result-bad {
-    font-family: sans-serif;
-    text-align: center;
-    font-size: 5rem;
-    color: red;
-    font-family: inherit;
-    font-weight: 1000;
-    margin: 0rem auto;
-    text-shadow: 2px 2px 6px rgb(68, 68, 93);
-  }
+    #result-bad {
+      font-family: sans-serif;
+      text-align: center;
+      font-size: 5rem;
+      color: red;
+      font-family: inherit;
+      font-weight: 1000;
+      margin: 0rem auto;
+      text-shadow: 2px 2px 6px rgb(68, 68, 93);
+    }
 
-  #graph {
-    margin: auto;
-    width: 20rem;
-    margin-top: 3rem;
-  }
+    #graph {
+      margin: auto;
+      width: 20rem;
+      margin-top: 3rem;
+    }
 
-  #graph img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    border-radius: 5px;
-    box-shadow: 2px 2px 6px rgb(68, 68, 93);
-  }
+    #graph img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 5px;
+      box-shadow: 2px 2px 6px rgb(68, 68, 93);
+    }
 
-  .alert {
-    color: red;
-  }
+    .alert {
+      color: red;
+    }
 
-  #AI {
-    display: block;
-    margin: 2rem auto 1rem auto;
-    text-decoration: none;
-    width: 20rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
-    background: linear-gradient(45deg, rgb(13, 14, 50), rgb(51, 120, 91));
-    color: aliceblue;
-    border-radius: 5px;
-    text-align: center;
-  }
+    #AI {
+      display: block;
+      margin: 2rem auto 1rem auto;
+      text-decoration: none;
+      width: 20rem;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      background: linear-gradient(45deg, rgb(13, 14, 50), rgb(51, 120, 91));
+      color: aliceblue;
+      border-radius: 5px;
+      text-align: center;
+    }
 
-  a:hover {
-    color: aquamarine;
-  }
+    a:hover {
+      color: aquamarine;
+    }
 
-  #AI:hover {
-    color: aquamarine;
-  }
-</style>
+    #AI:hover {
+      color: aquamarine;
+    }
+  </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<section>
-  <div class="box box-purple">
-    <div class="title">Overview</div>
-    <div class="title-content-space"></div>
-    <div class="content">
-      <img
-        width="256px"
-        height="256px"
-        src="https://templatelab.com/wp-content/uploads/2020/04/pie-chart-template-45-scaled.jpg"
-        alt=""
-      />
-      <div style="width: 124px"></div>
-      <span> <%= overview %>.<br><br> Your result: <%=result%>. </span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="box box-green">
-      <div class="title">Analysis</div>
-      <div class="title-content-space"></div>
-      <div class="content">
-        <span> <%=analysis%> </span>
+  <section>
+
+    <div class="row">
+      <div class="box box-green">
+        <div class="title">Analysis</div>
+        <div class="title-content-space"></div>
+        <div class="content">
+          <span>
+            <%=analysis%>
+          </span>
+        </div>
+      </div>
+
+      <div class="space-50"></div>
+
+      <div class="box box-yellow">
+        <div class="title">Performance</div>
+        <div class="title-content-space"></div>
+        <div class="content">
+          <span> <%=performance%> </span>
+        </div>
       </div>
     </div>
-
-    <div class="space-50"></div>
-
-    <div class="box box-yellow">
-      <div class="title">Performance</div>
+    <div class="barChart">
+      <canvas id="barChart"></canvas>
+      <div style="display: none;" id="arr"><%=Arr%></div>
+      <div style="display: none;" id="arrLen"><%=len%></div>
+      <div style="display: none;" id="avg"><%=average%></div>
+  
+    </div>
+    <div class="box box-purple">
+      <div class="title">Comparison</div>
       <div class="title-content-space"></div>
       <div class="content">
-        <span> <%= performance %> </span>
+        <img width="256px" height="256px"
+          src="http://www.conceptdraw.com/solution-park/resource/images/solutions/bar-graphs/Graphs-and-Charts-Bar-Charts-Iran-Internet-Users-per-100-Person.png" alt="" />
+        <div style="width: 124px"></div>
+        <span> <%= overview %>.<br> Your result: <%=result%>. </span>
       </div>
     </div>
-  </div>
-  <div class="barChart">
-    <canvas id="barChart"></canvas>
-    <div style="display: none;" id="arr"><%=Arr%></div>
-    <div style="display: none;" id="arrLen"><%=len%></div>
-
-  </div>
-  <div class="box box-blue">
-    <div class="title">Recommendations</div>
-    <% recommendations.forEach((r, i) => {%>
-    <div class="list-item">
-      <div class="sno"><%=i+1%></div>
-      <div class="content"><%=r%></div>
+    <div class="box box-blue">
+      <div class="title">Recommendations</div>
+      <% recommendations.forEach((r, i)=> {%>
+        <div class="list-item">
+          <div class="sno">
+            <%=i+1%>
+          </div>
+          <div class="content">
+            <%=r%>
+          </div>
+        </div>
+        <%})%>
     </div>
-    <%})%>
-  </div>
+
 </section>
 
 <script>
@@ -239,7 +252,9 @@
   var v1=ele1.innerHTML;
   const ele2=document.getElementById("arrLen");
   var v2=ele2.innerHTML;
-  const allLabels = ["You"];
+  const ele3=document.getElementById("avg");
+  var avg=ele3.innerHTML;
+  const allLabels = ["You","Ideal"];
   for(let i=1;i<v2;i++){
     allLabels.push("Other"+i);
   }
@@ -248,6 +263,7 @@
     inputData=v1.split(",");
   }else{
     inputData.push(v1);
+    inputData.push(avg/10000000);
   }
   console.log(inputData);
   console.log(v1);

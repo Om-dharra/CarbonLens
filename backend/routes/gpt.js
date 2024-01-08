@@ -20,7 +20,7 @@ let result;
 let input2;
 
 const openai = new OpenAI({
-  apiKey:"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"
+  apiKey:"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"
 });
 async function main(input) {
 
@@ -72,6 +72,7 @@ router.get("/newPage/:businessid",isLoggedIn,async(req, res)=>{
   const {businessid}=req.params;
   const Business=await BusinessDatabase.findById(businessid);
   const field=Business.Industry;
+  const average=Business.Average;
   let data=await  BusinessDatabase.find({Industry:field});
   const Arr=[];
   data.forEach((i)=>{
@@ -97,7 +98,7 @@ router.get("/newPage/:businessid",isLoggedIn,async(req, res)=>{
       'Adopt carbon pricing mechanisms: Implement internal carbon pricing mechanisms to incentivize emissions reduction efforts and drive sustainable decision-making within the company.'
     ]
   } 
-  res.render('AiChatbot/recommendations', { recommendations: response.recommendations, analysis: response.analysis, performance: response.performance, result, overview:response.overview,Arr,len});
+  res.render('AiChatbot/recommendations', { recommendations: response.recommendations, analysis: response.analysis, performance: response.performance, result, overview:response.overview,Arr,len,average});
 })
 
 
