@@ -1,29 +1,57 @@
 <% layout('./layout/boilerplate') %>
+<br>
+<link rel="stylesheet" href="styles/authStyles2.css">
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="/register" method="post">
+			<h1>Create Account</h1>
+			<span>or use your email for registration</span>
 
-<div class="border p-3 mx-auto w-50 mt-5">
-    <h1>SignUp</h1>
-    <form action="/register" method="post">
-        <div class="mb-3">
-            <label class="form-label" for="username">Username</label>
-            <input class="form-control" type="text" id="username" name="username">
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-control" type="email" id="email" name="email">
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="password">Password</label>
-            <input class="form-control" type="text" id="password" name="password">
             
-            <input type="checkbox" checked="false" onclick="Toggle()">
-        </div>
-        <p>Already have an account ? <a href="/login">Login</a></p>
+			<input type="text" placeholder="username"  name="username"/>
+			<input type="password" placeholder="Password" name="password" />
 
-        <button type="submit" class="btn btn-sm btn-success">Sign up</button>
-        
-    </form>
-
+			<button>Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="/login" method="post">
+			<h1>Sign in</h1>
+			<input type="text" placeholder="username" name="username" />
+			<input type="password" placeholder="Password" name="password" />
+			<a href="#">Forgot your password?</a>
+			<button>Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
 </div>
+
+<script>
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+</script>
 <script>
     // Change the type of input to password or text
     function Toggle() {
@@ -37,5 +65,3 @@
         }
     }
 </script>
-                                                                         
-
